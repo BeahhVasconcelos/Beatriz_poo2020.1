@@ -10,11 +10,11 @@ class Grafite {
     }
 }
 
-public class Lapiseira {
+public class Lapiseira2 {
 	 Grafite grafite;
      float espessura;
 
-	public Lapiseira(float espessura){
+	public Lapiseira2(float espessura){
             this.espessura = espessura;
 	}
 	
@@ -28,17 +28,17 @@ public class Lapiseira {
 	void retirar() {
 		if(this.grafite != null){
                     this.grafite = null;
-                    System.out.println("Retirou,agora,insira outro para escrever.");
+                    System.out.println("Removido, agora ,insira outro para escrever.");
                 } else{
-                    System.out.println("Nem tem grafite aqui, insira para poder escrever.");
+                    System.out.println("sem grafite, insira para poder escrever.");
                 }
 	}
         
         void escrever(int letras){
             if(this.grafite == null){
-                System.out.println("Não há grafite na lapiseira");
+                System.out.println("NÃ£o tem grafite na lapiseira");
             }else if(this.grafite.espessura != this.espessura){
-                System.out.println("Impossível escrever, o grafite inserido não serve nessa lapiseira, insira um compativel!");
+                System.out.println("NÃ£o da pra escrever, o grafite inserido nÃ£o serve nessa lapiseira, coloque um compativel!");
                 retirar();
             }else{
                 if(grafite.tamanho>0.1){
@@ -46,7 +46,7 @@ public class Lapiseira {
                     this.grafite.tamanho-=letras/10;
                 }
                 else{
-                    System.out.println("insira outro grafite");
+                    System.out.println("coloque outro grafite");
                     grafite=null;
                     }
             }
@@ -54,21 +54,21 @@ public class Lapiseira {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		Lapiseira lapiseira  = new Lapiseira(1);
+		Lapiseira2 lapiseira2  = new Lapiseira2(1);
 		while(true) {
 			String line = scanner.nextLine();
 			String ui[] = line.split(" ");
 			if(ui[0].equals("acabou")) {
 				break;
 			}else if(ui[0].equals("iniciar")) { //iniciar o tipo da lapiseira
-                            lapiseira = new Lapiseira(Float.parseFloat(ui[1]));
+                            lapiseira2 = new Lapiseira2(Float.parseFloat(ui[1]));
 			}else if(ui[0].equals("inserir")) { 
-                            lapiseira.inserir(new Grafite(Float.parseFloat(ui[1]),Float.parseFloat(ui[2])));
+                            lapiseira2.inserir(new Grafite(Float.parseFloat(ui[1]),Float.parseFloat(ui[2])));
 			}else if(ui[0].equals("retirar")) {
-                            lapiseira.retirar();
+                            lapiseira2.retirar();
 			}else if(ui[0].equals("escrever")) {
                             int letras = Integer.parseInt(ui[1]);
-                            lapiseira.escrever(letras);
+                            lapiseira2.escrever(letras);
 			}else{
                             System.out.println("Comando invalido");
 			}
@@ -76,3 +76,4 @@ public class Lapiseira {
 		scanner.close();
 	}
 }
+
